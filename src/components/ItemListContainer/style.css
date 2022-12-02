@@ -2,5 +2,6 @@
     background-color: rgb(223, 223, 223);
     width: 25%;
     height: 100vh;
+    height: calc(100vh - 60px);
     float: right;
 }
