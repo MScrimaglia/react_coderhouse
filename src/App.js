@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar';
 import CartWidget from './components/CartWidget';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         <Navbar />
         <CartWidget />  
       </header>
-      
+      <ItemListContainer greeting='Hello world'/>
     </div>
   );
 }
