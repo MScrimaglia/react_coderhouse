@@ -1,0 +1,25 @@
+.cart {
+    color: white;
+}
+
+.cart_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60px;
+    padding: 0 10px;
+    height: 75%;
+    border-radius: 30%;
+    transition: 0.1s;
+}
+
+.cart_container:hover {
+    background-color: rgb(92, 92, 92);
+}
+
+.cart_num {
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+}
