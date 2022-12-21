@@ -9,12 +9,12 @@
     width: 60px;
     padding: 0 10px;
     height: 75%;
-    border-radius: 30%;
     transition: 0.1s;
 }
 
 .cart_container:hover {
-    background-color: rgb(92, 92, 92);
+    background-color: rgb(65, 65, 65);
+    height: 100%;
 }
 
 .cart_num {

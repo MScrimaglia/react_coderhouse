@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import './App.css';
-import Header from './components/Header';
-import ItemListContainer from './components/ItemListContainer';
-import CartWidget from './components/CartWidget';
+import Header from './components/header';
+import ItemListContainer from './components/item-list-container';
+import CartWidget from './components/cart-widget';
+import Router from './router';
 
 const App = () => {
 
   const [isOpen, setIsOpen] = useState(false);
-  const onHandlerClick = () => {
+  const onClickHandler = () => {
     setIsOpen(!isOpen);
   }
 
   return (
     <div className="App">
-      <Header><CartWidget onHandlerClick={onHandlerClick}/></Header>
-      <ItemListContainer onClose={onHandlerClick} isOpen={isOpen}/>
+      <ItemListContainer onClose={onClickHandler} isOpen={isOpen}/>
+      <Header><CartWidget onClickHandler={onClickHandler}/></Header>
+      <Router/>
     </div>
   );
 }

@@ -1,13 +1,15 @@
 .item_list_container {
-    background-color: rgb(223, 223, 223);
+    background-color: rgb(190, 190, 190);
     width: 25%;
     height: 100vh;
     height: calc(100vh - 60px);
-    float: right;
+    height: 100vh;
     -webkit-transition: width 1s ease-in-out;
     -moz-transition: width 1s ease-in-out;
     -o-transition: width 1s ease-in-out;
     transition: width 1s ease-in-out;
+    position: fixed;
+    right: 0;
 }
 
 .close-button {
@@ -15,11 +17,11 @@
     margin: 15px;
     font-size: 36px; 
     opacity: 1; 
-    color: rgb(223, 223, 223); 
+    color: rgb(190, 190, 190); 
     -webkit-text-stroke-width: 1px;
     border-radius: 25%;
     border: 0;
-    background-color: rgb(153, 153, 153);
+    background-color: rgb(129, 129, 129);
     -webkit-transition: opacity 0.5s ease-in-out;
     -moz-transition: opacity 0.5s ease-in-out;
     -o-transition: opacity 0.5s ease-in-out;
@@ -27,5 +29,5 @@
 }
 
 .close-button:hover {
-    background-color: rgb(123, 123, 123);
+    background-color: rgb(91, 91, 91);
 }
