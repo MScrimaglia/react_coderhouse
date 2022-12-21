@@ -2,8 +2,7 @@ import React from "react"
 import './style.css'
 
 const Card = ({product, onSelect}) => {
-    console.log(product)
-    const { id, categoryId, description, image, name, price, stock } = product || {};
+    const { id, category, description, image, name, price, stock } = product || {};
     
     return (
         <div className="card" onClick={() => onSelect(product)}>

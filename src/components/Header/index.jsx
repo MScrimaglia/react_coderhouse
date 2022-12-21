@@ -10,9 +10,9 @@ const Header = (props) => {
                     <nav>
                         <ul className="nav__ul">
                             <li className="nav__li"><a className="nav__a" href="/">Inicio</a></li>
-                            <li className="nav__li"><a className="nav__a" href="/">Categoria 1</a></li>
-                            <li className="nav__li"><a className="nav__a" href="/">Categoria 2</a></li>
-                            <li className="nav__li"><a className="nav__a" href="/">Categoria 3</a></li>
+                            <li className="nav__li"><a className="nav__a" href="/categoria/celulares">Celulares</a></li>
+                            <li className="nav__li"><a className="nav__a" href="/categoria/relojes">Relojes</a></li>
+                            <li className="nav__li"><a className="nav__a" href="/categoria/audifonos">Audifonos</a></li>
                         </ul>
                     </nav>
                     {props.children}
