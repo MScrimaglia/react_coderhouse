@@ -2,7 +2,7 @@ import React from 'react'
 import './style.css'
 import CartWidget from '../CartWidget';
 
-const Header = () => {
+const Header = (props) => {
     return (
         <header>
             <div className="header">
@@ -16,7 +16,7 @@ const Header = () => {
                             <li className="nav__li"><a class="nav__a" href="/">Categoria 3</a></li>
                         </ul>
                     </nav>
-                    <CartWidget />
+                    {props.children}
                 </div>
             </div>
         </header>
