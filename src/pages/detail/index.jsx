@@ -4,11 +4,11 @@ import { useParams } from "react-router-dom";
 
 const Detail = () => {
 
-    const {id} = useParams() || {};
+    const {name} = useParams() || {};
 
     return (
         <div className="detail-container">
-            
+            {name}
         </div>
     );
 }
