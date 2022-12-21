@@ -1,16 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import Navbar from './components/Navbar';
-import CartWidget from './components/CartWidget';
+import Header from './components/Header';
 import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <Navbar />
-        <CartWidget />  
-      </header>
+      <Header />
       <ItemListContainer greeting='Hello world'/>
     </div>
   );
