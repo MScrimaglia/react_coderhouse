@@ -1,5 +1,6 @@
 .card {
-    background-color: #fff;
+    background-color: #06070d;
+    
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -43,31 +44,30 @@
     flex: 0.6;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     width: 95%;
 }
 
 .card-name {
     width: 80%;
     font-size: 1.2rem;
-    color: #212121;
+    color: rgb(220, 220, 220);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 .card-description {
     font-size: 0.9rem;
-    color: #212121;
-    /* text-align: center; */
+    color: rgb(220, 220, 220);
 }
 .card-price {
     font-size: 1.5rem;
-    color: #212121;
+    color: rgb(220, 220, 220);
     font-weight: bold;
 }
 .card-stock {
     font-size: 1rem;
-    color: #212121;
+    color: rgb(220, 220, 220);
 }
 .card-button-container {
     display: flex;
@@ -110,7 +110,7 @@ input {
 }
 .card-button-plus {
     background-color: #fff;
-    border: 1px solid #212121;
+    border: 1px solid rgb(220, 220, 220);
     border-radius: 50%;
     width: 2rem;
     height: 2rem;

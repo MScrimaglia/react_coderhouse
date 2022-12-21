@@ -6,7 +6,7 @@ const Card = ({product, onSelect}) => {
     const { id, categoryId, description, image, name, price, stock } = product || {};
     
     return (
-        <div className="card">
+        <div className="card" onClick={() => onSelect(product)}>
             <img className="card-image" src={image} alt={name} />
             <div className="card-content">
                 <h3 className="card-name">{name}</h3>
@@ -15,6 +15,7 @@ const Card = ({product, onSelect}) => {
                 <p className="card-stock">{stock} en stock</p>
             </div>
         </div>
+        
     )
 }
 
