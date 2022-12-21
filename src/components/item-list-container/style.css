@@ -10,6 +10,7 @@
     transition: width 1s ease-in-out;
     position: fixed;
     right: 0;
+    z-index: 10;
 }
 
 .close-button {
@@ -26,6 +27,12 @@
     -moz-transition: opacity 0.5s ease-in-out;
     -o-transition: opacity 0.5s ease-in-out;
     transition: opacity 0.5s ease-in-out;
+}
+
+.buy-button {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 25px;
 }
 
 .close-button:hover {
