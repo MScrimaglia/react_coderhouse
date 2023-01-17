@@ -31,6 +31,7 @@ const Detail = () => {
                         <h3>Descripción:</h3>
                         <p>{product.description}</p>
                     </div>
+                    <h2>${product.price}</h2>
                     <BuyButton />
                 </div>
 

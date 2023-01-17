@@ -1,14 +1,24 @@
-import React from "react"
+import React, { useState } from "react"
 import './style.css'
 
 
-const BuyButton = () => { return (
+const BuyButton = () => { 
+    
+    const [qty, setQty] = useState(1);
+
+    const qtyDecreaseHandler = () => {
+        if (!(qty <= 1)) {
+            setQty(qty - 1);
+        }
+    }
+
+    return (
     <div className="buy-button">
         <button type="button" className="button">Comprar</button>
         <div className="change-qty horizontal-flex-container">
-            <button type="button" className="qty-btn">-</button>
-            <p id="qty">1</p>
-            <button type="button" className="qty-btn">+</button>
+            <button onClick={() => qtyDecreaseHandler()} type="button" className="qty-btn">-</button>
+            <p id="qty">{qty}</p>
+            <button onClick={() => setQty(qty + 1)} type="button" className="qty-btn">+</button>
         </div>
     </div>
 )}
