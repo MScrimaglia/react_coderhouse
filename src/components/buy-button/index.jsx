@@ -1,5 +1,7 @@
 import React, { useState } from "react"
+import CartItem from '../../components/cart-item';
 import './style.css'
+import * as ReactDOM from 'react-dom/client';
 
 
 const BuyButton = (props) => { 
@@ -14,10 +16,33 @@ const BuyButton = (props) => {
         }
     }
 
+    const buyButtonClickHandler = () => {
+
+        if (localStorage.ch_products_cart === undefined){
+            let cart_products = [];
+            localStorage.setItem('ch_products_cart', JSON.stringify(cart_products));
+        }
+
+        let new_item = JSON.parse(localStorage.getItem('ch_products_cart'));
+
+        for (let item in new_item){
+            if (new_item[item].id == {product}.product.id){
+                new_item[item].qty += qty;
+                localStorage.setItem('ch_products_cart', JSON.stringify(new_item));
+                return;
+            }
+        }
+
+        let new_purchase = {product}.product;
+        new_item.push(new_purchase);
+        new_item[new_item.length - 1]['qty'] = qty;
+        localStorage.setItem('ch_products_cart', JSON.stringify(new_item));
+    }
+
     return (
     <div className="buy-button">
         <h2>${product.price * qty}</h2>
-        <button type="button" className="button">Comprar</button>
+        <button type="button" className="button" onClick={() => buyButtonClickHandler()}>Comprar</button>
         <div className="change-qty horizontal-flex-container">
             <button onClick={() => qtyDecreaseHandler()} type="button" className="qty-btn">-</button>
             <p id="qty">{qty}</p>
