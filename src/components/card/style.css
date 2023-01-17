@@ -8,7 +8,7 @@
     margin: 0.5rem;
     padding: 1rem;
     max-width: 300px;
-    min-height: 590px;
+    min-height: fit-content;
     box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.2);
     transition: all 0.2s ease-in-out;
 }
@@ -55,10 +55,6 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-.card-description {
-    font-size: 0.9rem;
-    color: rgb(220, 220, 220);
 }
 .card-price {
     font-size: 1.5rem;

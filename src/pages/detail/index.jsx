@@ -27,7 +27,10 @@ const Detail = () => {
                 <div className="image-container"><img src={product.image} alt={product.name}></img></div>
 
                 <div className="product-details">
-                    <div className="product-description">{product.description}</div>
+                    <div className="product-description">
+                        <h3>Descripción:</h3>
+                        <p>{product.description}</p>
+                    </div>
                     <BuyButton />
                 </div>
 

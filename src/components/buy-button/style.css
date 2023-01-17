@@ -18,35 +18,37 @@
     width: 25px;
     height: 25px;
     border-radius: 25px;
-    background-color: black;
-    color: white;
+    background-color: #06070d;
+    color: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
     align-items: center;
     transition: 0.1s;
-    border: 0;
+    border: 1px solid white;
     cursor: pointer;
 }
 
 .qty-btn:hover {
-    background-color: rgb(44, 44, 44);
-    color: white;
+    background-color: #ffffff;
+    color: #06070d;
     transition: 0.1s;
 }
 
 .button {
-    background-color: black;
-    color: white;
+    background-color: #06070d;
+    color: rgb(255, 255, 255);
     width: 150px;
     height: 60px;
-    font-size: 1em;
+    font-size: 18px;
     transition: 0.1s;
     cursor: pointer;
+    border: 1px solid white;
+    border-radius: 8px;
+    font-weight: 600;
 }
 
 .button:hover {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    font-size: 1em;
+    background-color: #ffffff;
+    color: #06070d;
     transition: 0.1s;
 }

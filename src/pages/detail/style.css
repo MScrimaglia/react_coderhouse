@@ -1,5 +1,9 @@
 .detail-container {
-    padding: 0 50px;
+    padding: 10px 50px 50px 50px;
+    background-color: #06070d;
+    color: white;
+    margin: 20px 25px;
+    border-radius: 10px;
 }
 
 .detail-title {
@@ -9,6 +13,7 @@
 .image-container {
     padding: 10px;
     border: 2px solid rgb(175, 175, 175);
+    background-color: white;
     border-radius: 5px;
     height: 400px;
     width: 45%;
@@ -41,4 +46,9 @@
     flex-direction: column;
     justify-content: center;
     font-weight: 600;
+}
+
+.product-description h3{
+    padding-left: 2%;
+    text-align: left;
 }
