@@ -11,7 +11,7 @@ const ItemListContainer = ({items, onClose, isOpen}) => {
     }
 
     return (
-        <div className="item_list_container" style = {{ width: isOpen ? '25%' : '0'}}>
+        <div className="item_list_container" id="item-list-container" style = {{ width: isOpen ? '400px' : '0'}}>
 
             <div className="close-button-container">
                 <button onClick={onClose} className="close-button" style = {{ opacity: isOpen ? '100%' : '0%', visibility: isOpen ? 'visible' : 'hidden'}}><i className="bi bi-x"></i></button>
