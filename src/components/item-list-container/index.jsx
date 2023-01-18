@@ -24,6 +24,8 @@ const ItemListContainer = ({onClose, isOpen}) => {
         }
     }
 
+    window.addEventListener('storage', () => {if (isOpen) {onClose()}});
+
     return (
         <div className="item_list_container" id="item-list-container" style = {{ width: isOpen ? '400px' : '0'}}>
 

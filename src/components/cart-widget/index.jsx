@@ -5,17 +5,29 @@ export const CartWidget = (props) => {
 
     const [qty, setQty] = useState(0);
 
-    let items = JSON.parse(localStorage.getItem('ch_products_cart'));
-
     useEffect(() => {
-        console.log('effect!');
-        if (!items) {
-            setQty(0);
+        function checkItemCount() {
+            let items = JSON.parse(localStorage.getItem('ch_products_cart'));
+
+            if (!items) {
+                setQty(0);
+            }
+            else {
+                let item_count = 0;
+                for (let item of items){
+                    item_count += parseInt(item['qty']);
+                }
+                setQty(item_count);
+            }
         }
-        else {
-            setQty(items.length);
+
+        window.addEventListener('storage', () => checkItemCount());
+        window.dispatchEvent( new Event('storage') );
+        return () => {
+            window.removeEventListener('storage', () => checkItemCount());
         }
-      }, []);
+
+    }, []);
 
     return (
         <div className="cart_container" onClick={props.onClickHandler}>

@@ -29,6 +29,7 @@ const BuyButton = (props) => {
             if (new_item[item].id == {product}.product.id){
                 new_item[item].qty += qty;
                 localStorage.setItem('ch_products_cart', JSON.stringify(new_item));
+                window.dispatchEvent( new Event('storage') );
                 return;
             }
         }
@@ -37,6 +38,7 @@ const BuyButton = (props) => {
         new_item.push(new_purchase);
         new_item[new_item.length - 1]['qty'] = qty;
         localStorage.setItem('ch_products_cart', JSON.stringify(new_item));
+        window.dispatchEvent( new Event('storage') );
     }
 
     return (
