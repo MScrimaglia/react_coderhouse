@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import './style.css'
 import CartItem from "../cart-item";
 import { useNavigate } from 'react-router-dom';
@@ -11,9 +11,11 @@ const ItemListContainer = ({onClose, isOpen}) => {
         navigate(`/cart`);
     }
 
+    const [item_qty, setItemQty] = useState(0);
+
     let items;
 
-    if (localStorage['ch_products_cart'] === undefined) {
+    if (localStorage['ch_products_cart'] === undefined || localStorage['ch_products_cart'] === '[]') {
         items = <h4 className="empty-cart-message">Aún no se ha añadido ningún producto</h4>;
     }
     else {
@@ -23,8 +25,8 @@ const ItemListContainer = ({onClose, isOpen}) => {
             items.push(<CartItem key={product.id} product={product}/>);
         }
     }
-
-    window.addEventListener('storage', () => {if (isOpen) {onClose()}});
+    
+    window.addEventListener('storage', () => {setItemQty(JSON.parse(localStorage['ch_products_cart']).length);});
 
     return (
         <div className="item_list_container" id="item-list-container" style = {{ transform: isOpen ? 'translateX(0)' : 'translateX(100%)'}}>

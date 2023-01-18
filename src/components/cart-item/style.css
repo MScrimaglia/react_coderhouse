@@ -67,7 +67,7 @@
     height: 25px;
 }
 
-.item-close-button {
+.item-remove-button {
     float: right;
     margin-right: 15px;
     font-size: 32px; 
@@ -80,6 +80,6 @@
     cursor: pointer;
 }
 
-.item-close-button:hover {
+.item-remove-button:hover {
     background-color: #830909;
 }

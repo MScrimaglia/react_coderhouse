@@ -1,7 +1,7 @@
-import React from "react"
+import React, { useEffect } from "react"
 import './style.css'
 
-const cartItem = (props) => {
+const CartItem = (props) => {
 
     let product = props.product;
 
@@ -13,6 +13,17 @@ const cartItem = (props) => {
                 purchase = el;
             }
         }
+
+    useEffect(() => {
+        document.getElementById('remove-' + purchase.id).addEventListener('click', () => {
+            delete purchases[purchases.indexOf(purchase)];
+            purchases = purchases.filter(item => item != undefined);
+            localStorage.setItem('ch_products_cart', JSON.stringify(purchases));
+            window.dispatchEvent( new Event('storage') );
+        })
+    });
+
+    
 
     return (
         <div className="cart-item-container">
@@ -28,11 +39,11 @@ const cartItem = (props) => {
                     </div>
                 </div>
                 <div className="close-button-container">
-                    <button className="item-close-button"><i className="bi bi-x"></i></button>
+                    <button id={'remove-' + purchase.id} className="item-remove-button"><i className="bi bi-x"></i></button>
                 </div>
             </div>
         </div>
     );
 }
 
-export default cartItem;
+export default CartItem;
