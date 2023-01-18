@@ -1,13 +1,27 @@
 import React from "react";
 import './style.css'
+import CartItem from "../cart-item";
 import { useNavigate } from 'react-router-dom';
 
-const ItemListContainer = ({items, onClose, isOpen}) => {
+const ItemListContainer = ({onClose, isOpen}) => {
 
     const navigate = useNavigate();
     const onHandlerClick = () => {
-        onClose(); 
+        onClose();
         navigate(`/cart`);
+    }
+
+    let items;
+
+    if (localStorage['ch_products_cart'] === undefined) {
+        items = <h4 className="empty-cart-message">Aún no se ha añadido ningún producto</h4>;
+    }
+    else {
+        let products = JSON.parse(localStorage['ch_products_cart']);
+        items = [];
+        for (let product of products){
+            items.push(<CartItem key={product.id} product={product}/>);
+        }
     }
 
     return (

@@ -40,6 +40,7 @@
     font-size: 18px;
     padding: 12px 0;
     transition: 0.1s;
+    cursor: pointer;
 }
 
 .confirm-buy-button:hover {
@@ -67,4 +68,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.empty-cart-message {
+    color: rgb(160, 160, 160);
 }
