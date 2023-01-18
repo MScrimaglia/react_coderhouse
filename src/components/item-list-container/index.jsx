@@ -27,7 +27,7 @@ const ItemListContainer = ({onClose, isOpen}) => {
     window.addEventListener('storage', () => {if (isOpen) {onClose()}});
 
     return (
-        <div className="item_list_container" id="item-list-container" style = {{ width: isOpen ? '400px' : '0'}}>
+        <div className="item_list_container" id="item-list-container" style = {{ transform: isOpen ? 'translateX(0)' : 'translateX(100%)'}}>
 
             <div className="close-button-container">
                 <button onClick={onClose} className="close-button" style = {{ opacity: isOpen ? '100%' : '0%', visibility: isOpen ? 'visible' : 'hidden'}}><i className="bi bi-x"></i></button>

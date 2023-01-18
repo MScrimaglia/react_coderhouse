@@ -1,7 +1,7 @@
 .item_list_container {
     background-color: #06070d;
     border-left: 1px solid white;
-    width: 25%;
+    width: 400px;
     height: 100vh;
     height: calc(100vh - 60px);
     height: 100vh;
@@ -24,10 +24,11 @@
     border-radius: 25%;
     border: 0;
     background-color: #06070d;
-    -webkit-transition: opacity 0.5s ease-in-out;
-    -moz-transition: opacity 0.5s ease-in-out;
-    -o-transition: opacity 0.5s ease-in-out;
-    transition: opacity 0.5s ease-in-out;
+    -webkit-transition: transform 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out;
+    -o-transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
 }
 
 .confirm-buy-button {
