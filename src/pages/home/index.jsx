@@ -1,20 +1,43 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './style.css';
-import { PRODUCTS } from '../../constants/data/products';
 import { Card } from '../../components';
 import { useNavigate } from 'react-router-dom';
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 const Home = () => {
     const navigate = useNavigate();
     const onHandlerSelect = (product) => {  
-        navigate(`/product/${product.name}`, { state: product});
+        navigate(`/product/${product.name}`);
     }
-    
+    const [loading, isLoading] = useState(true);
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        const db = getFirestore();
+        const product_collection = collection(db, 'products');
+        getDocs(product_collection)
+        .then((snapshot) => {
+            const result = snapshot.docs.map((doc) => (doc.data()));
+            setProducts(result);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+        .finally(() => {
+            isLoading(false);
+        })
+    }
+    ,[])
+
+    console.log(products);
+
+    if (loading) {return <h4>Cargando...</h4>}
+
     return (
         <div className='home-container'>
             <h1>Productos</h1>
             <div className='products-container'>
-                {PRODUCTS.map((product) => (
+                {products.map((product) => (
                     <Card product={product} key={product.id} onSelect={onHandlerSelect} />
                 ))}
             </div>

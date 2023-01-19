@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import CartItem from "../../components/cart-item";
 import './style.css'
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 
 const Cart = () => {
 
@@ -15,7 +16,10 @@ const Cart = () => {
 
     const [total_price, setTotalPrice] = useState(total);
 
-    
+    const submitHandler = (e) => {
+        e.preventDefault();
+        console.log('Omg it works!');
+    }
 
     window.addEventListener('storage', () => {
         let total = 0;
@@ -36,14 +40,14 @@ const Cart = () => {
             </div>
         )
     }
-    else {
-        let products = JSON.parse(localStorage['ch_products_cart']);
-        items = [];
-        for (let product of products){
-            items.push(<CartItem key={product.id} product={product}/>);
-        }
-        items.push(<h3 key='total_price' id="total_price">Total: ${total_price}</h3>);
+
+    let products = JSON.parse(localStorage['ch_products_cart']);
+    items = [];
+    for (let product of products){
+        items.push(<CartItem key={product.id} product={product}/>);
     }
+    items.push(<h3 key='total_price' id="total_price">Total: ${total_price}</h3>);
+
 
     return (
         <div>
@@ -51,9 +55,27 @@ const Cart = () => {
             <div className="final-purchase-items">
                 {items}
             </div>
-            <div className="confirm-buy-button-container">
-                <button className="cart-buy-button">Comprar</button>
-            </div>
+            <div>
+                <form className="user-data-form" onSubmit={submitHandler}>
+                    <div className="form-fields">
+                        <label>
+                            <h5>Nombre completo:</h5>
+                            <input placeholder="Ingrese su nombre completo..." type="text" required/>
+                        </label>
+                        <label>
+                            <h5>Email:</h5>
+                            <input placeholder="Ingrese su email..." type="email" required/>
+                        </label>
+                        <label>
+                            <h5>Número de telefono:</h5>
+                            <input placeholder="Ingrese su número de telefono..." type="number" required/>
+                        </label>
+                    </div>
+                    <div className="confirm-buy-button-container">
+                        <button type="submit" className="cart-buy-button">Comprar</button>
+                    </div>
+                </form>
+                </div>
         </div>
     )
 }

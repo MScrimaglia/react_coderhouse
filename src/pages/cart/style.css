@@ -33,7 +33,7 @@
 .cart-buy-button {
     position: absolute;
     width: 250px;
-    background-color: #0e1640;
+    background-color: #06070d;
     color: white;
     border-radius: 10px;
     border: 1px solid #06070d;
@@ -41,14 +41,55 @@
     padding: 12px 0;
     transition: 0.1s;
     cursor: pointer;
-    margin-top: 50px;
 }
 
 .cart-buy-button:hover {
-    background-color: #0a102d;
+    background-color: #171717;
     transition: 0.1s;
 }
 
 .final-purchase-items .empty-cart-message {
     color: #8b8b8b;
+}
+
+.user-data-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.form-fields label {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    min-width: fit-content;
+    width: 500px;
+    padding-right: 200px;
+}
+
+.form-fields label input {
+    text-align: left;
+    border: 0px solid rgb(80, 80, 80);
+    border-bottom: 1px solid rgb(123, 123, 123);
+    border-right: 1px solid rgb(123, 123, 123);
+    border-radius: 2px;
+}
+
+.form-fields label input:focus {
+    outline: none;
+}
+
+.confirm-buy-button-container {
+    height: fit-content;
+    margin: 50px 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

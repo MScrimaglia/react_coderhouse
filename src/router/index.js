@@ -6,7 +6,7 @@ const Router = () => {
         <Routes>
             <Route exact path="/" element={<Home/>} />
             <Route exact path="/product/:name" element={<Detail />} />
-            <Route exact path="/categoria/:name" element={<Categoria />} />
+            <Route exact path="/categoria/:category" element={<Categoria />} />
             <Route exact path="/cart" element={<Cart />} />
             <Route path='*' element={<h1>404 Not Found</h1>} />
         </Routes>

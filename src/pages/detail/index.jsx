@@ -1,21 +1,33 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 import './style.css'
 import { useParams } from "react-router-dom";
-import { PRODUCTS } from '../../constants/data/products';
 import BuyButton from '../../components/buy-button';
+import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
 
 const Detail = () => {
 
     const {name} = useParams() || {};
+    const [loading, isLoading] = useState(true);
+    const [product, setProduct] = useState({});
 
-    let product;
-
-    for (let item of PRODUCTS){
-        if (item.name === name){
-            product = item;
-            break;
-        }
+    useEffect(() => {
+        const db = getFirestore();
+        const product_collection = query(collection(db, 'products'), where('name', '==', name));
+        getDocs(product_collection)
+        .then((snapshot) => {
+            const result = snapshot.docs.map((doc) => (doc.data()));
+            setProduct(result[0]);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+        .finally(() => {
+            isLoading(false);
+        })
     }
+    ,[name])
+
+    if (loading) {return <h4>Cargando...</h4>}
 
     return (
         <div className="detail-container">
