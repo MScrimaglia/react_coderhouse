@@ -69,17 +69,17 @@
 
 .item-remove-button {
     float: right;
-    margin-right: 15px;
+    margin-right: 25px;
     font-size: 32px; 
     opacity: 1; 
     color: rgb(255, 255, 255); 
     -webkit-text-stroke-width: 1px;
     border-radius: 25%;
     border: 0;
-    background-color: #ad0c0c;
+    background-color: #000000;
     cursor: pointer;
 }
 
 .item-remove-button:hover {
-    background-color: #830909;
+    background-color: #363636;
 }

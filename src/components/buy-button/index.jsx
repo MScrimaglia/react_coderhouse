@@ -44,7 +44,7 @@ const BuyButton = (props) => {
     return (
     <div className="buy-button">
         <h2>${product.price * qty}</h2>
-        <button type="button" className="button" onClick={() => buyButtonClickHandler()}>Comprar</button>
+        <button type="button" className="button" onClick={() => buyButtonClickHandler()}>Agregar al carrito</button>
         <div className="change-qty horizontal-flex-container">
             <button onClick={() => qtyDecreaseHandler()} type="button" className="qty-btn">-</button>
             <p id="qty">{qty}</p>

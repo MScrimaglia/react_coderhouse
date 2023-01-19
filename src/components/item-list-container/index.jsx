@@ -11,7 +11,7 @@ const ItemListContainer = ({onClose, isOpen}) => {
         navigate(`/cart`);
     }
 
-    const [item_qty, setItemQty] = useState(0);
+    const [total_price, setTotalPrice] = useState(0);
 
     let items;
 
@@ -24,9 +24,16 @@ const ItemListContainer = ({onClose, isOpen}) => {
         for (let product of products){
             items.push(<CartItem key={product.id} product={product}/>);
         }
+        items.push(<h3 key='total_price' id="total_price">Total: ${total_price}</h3>);
     }
     
-    window.addEventListener('storage', () => {setItemQty(JSON.parse(localStorage['ch_products_cart']).length);});
+    window.addEventListener('storage', () => {
+        let total = 0;
+        for (let product of JSON.parse(localStorage['ch_products_cart'])){
+            total += product.price * product.qty;
+        }
+        setTotalPrice(total);
+    });
 
     return (
         <div className="item_list_container" id="item-list-container" style = {{ transform: isOpen ? 'translateX(0)' : 'translateX(100%)'}}>

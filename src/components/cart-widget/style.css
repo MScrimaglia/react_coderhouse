@@ -22,4 +22,9 @@
     width: 25px;
     height: 25px;
     border-radius: 100%;
+    cursor: default;
+    -webkit-user-select: none;     
+    -moz-user-select: none;
+    -ms-user-select: none; 
+    user-select: none; 
 }
