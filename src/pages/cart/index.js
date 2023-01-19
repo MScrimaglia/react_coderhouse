@@ -5,7 +5,25 @@ import './style.css'
 const Cart = () => {
 
     let items;
-    const [total_price, setTotalPrice] = useState(0);
+    let total = 0;
+
+    if (!(localStorage['ch_products_cart'] === undefined || localStorage['ch_products_cart'] === '[]')){
+        for (let product of JSON.parse(localStorage['ch_products_cart'])){
+            total += product.price * product.qty;
+        }
+    }
+
+    const [total_price, setTotalPrice] = useState(total);
+
+    
+
+    window.addEventListener('storage', () => {
+        let total = 0;
+        for (let product of JSON.parse(localStorage['ch_products_cart'])){
+            total += product.price * product.qty;
+        }
+        setTotalPrice(total);
+    });
 
     if (localStorage['ch_products_cart'] === undefined || localStorage['ch_products_cart'] === '[]') {
         items = <h4 className="empty-cart-message">Aún no se ha añadido ningún producto</h4>;
@@ -26,14 +44,6 @@ const Cart = () => {
         }
         items.push(<h3 key='total_price' id="total_price">Total: ${total_price}</h3>);
     }
-
-    window.addEventListener('storage', () => {
-        let total = 0;
-        for (let product of JSON.parse(localStorage['ch_products_cart'])){
-            total += product.price * product.qty;
-        }
-        setTotalPrice(total);
-    });
 
     return (
         <div>
