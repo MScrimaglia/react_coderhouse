@@ -83,7 +83,11 @@
     outline: none;
 }
 
-.confirm-buy-button-container {
+.cart-buy-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: fit-content;
     margin: 50px 0;
 }

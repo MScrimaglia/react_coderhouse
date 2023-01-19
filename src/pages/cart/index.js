@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import CartItem from "../../components/cart-item";
+import { useNavigate } from 'react-router-dom';
 import './style.css'
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 
@@ -7,6 +8,7 @@ const Cart = () => {
 
     let items;
     let total = 0;
+    const navigate = useNavigate();
 
     if (!(localStorage['ch_products_cart'] === undefined || localStorage['ch_products_cart'] === '[]')){
         for (let product of JSON.parse(localStorage['ch_products_cart'])){
@@ -18,7 +20,26 @@ const Cart = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log('Omg it works!');
+        const name = e.target[0].value;
+        const email = e.target[1].value;
+        const phone = e.target[2].value;
+        let products = JSON.parse(localStorage['ch_products_cart']);
+            items = [];
+            for (let product of products){
+                items.push(product);
+            }
+        const order = {
+            buyer: {name: name, email: email, phone: phone},
+            items: items,
+            total: total_price
+        }
+        const db = getFirestore();
+        const orderCollection = collection(db, 'orders');
+        addDoc(orderCollection, order).then(() => {
+            localStorage.removeItem('ch_products_cart');
+            window.dispatchEvent( new Event('storage') );
+            navigate(`/`);
+        });
     }
 
     window.addEventListener('storage', () => {
@@ -71,7 +92,7 @@ const Cart = () => {
                             <input placeholder="Ingrese su número de telefono..." type="number" required/>
                         </label>
                     </div>
-                    <div className="confirm-buy-button-container">
+                    <div className="cart-buy-button-container">
                         <button type="submit" className="cart-buy-button">Comprar</button>
                     </div>
                 </form>

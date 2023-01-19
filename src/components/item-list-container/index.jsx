@@ -29,8 +29,10 @@ const ItemListContainer = ({onClose, isOpen}) => {
     
     window.addEventListener('storage', () => {
         let total = 0;
-        for (let product of JSON.parse(localStorage['ch_products_cart'])){
-            total += product.price * product.qty;
+        if (!(localStorage['ch_products_cart'] === undefined || localStorage['ch_products_cart'] === '[]')){
+            for (let product of JSON.parse(localStorage['ch_products_cart'])){
+                total += product.price * product.qty;
+            }
         }
         setTotalPrice(total);
     });
