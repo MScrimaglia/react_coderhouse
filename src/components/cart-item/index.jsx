@@ -25,7 +25,6 @@ const CartItem = (props) => {
             }
         }
         setItemQty(purchase.qty);
-        console.log(purchase.qty);
     })
 
     const removeHandler = () => {
