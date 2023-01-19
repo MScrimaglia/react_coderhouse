@@ -1,0 +1,54 @@
+.final-purchase-items .cart-item-container {
+    background-color: #06070d;
+    color: white;
+}
+
+.final-purchase-items .cart-item-container .item-remove-button {
+    background-color: #ffffff;
+    color: #06070d;
+    margin-right: 50px;
+}
+
+.final-purchase-items .cart-item-container .item-remove-button:hover {
+    background-color: #d4d4d4;
+}
+
+.final-purchase-items .cart-item-container .item-qty-btn {
+    background-color: #06070d;
+    color: white;
+    border: 1px solid white;
+}
+
+.final-purchase-items .cart-item-container .item-qty-btn:hover {
+    background-color: #ffffff;
+    color: #06070d;
+}
+
+.final-purchase-items #total_price {
+    background-color: #ffffff;
+    color: #06070d;
+    justify-content: center;
+}
+
+.cart-buy-button {
+    position: absolute;
+    width: 250px;
+    background-color: #0e1640;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid #06070d;
+    font-size: 18px;
+    padding: 12px 0;
+    transition: 0.1s;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+.cart-buy-button:hover {
+    background-color: #0a102d;
+    transition: 0.1s;
+}
+
+.final-purchase-items .empty-cart-message {
+    color: #8b8b8b;
+}
