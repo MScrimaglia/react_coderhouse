@@ -1,7 +1,5 @@
 import React, { useState } from "react"
-import CartItem from '../../components/cart-item';
 import './style.css'
-import * as ReactDOM from 'react-dom/client';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
@@ -28,7 +26,7 @@ const BuyButton = (props) => {
         let new_item = JSON.parse(localStorage.getItem('ch_products_cart'));
 
         for (let item in new_item){
-            if (new_item[item].id == {product}.product.id){
+            if (new_item[item].id === {product}.product.id){
                 new_item[item].qty += qty;
                 localStorage.setItem('ch_products_cart', JSON.stringify(new_item));
                 window.dispatchEvent( new Event('storage') );

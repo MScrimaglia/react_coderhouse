@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import './style.css'
 
 const CartItem = (props) => {
@@ -9,7 +9,7 @@ const CartItem = (props) => {
     let purchase;
 
     for (let el of purchases){
-        if (el.id == product.id){
+        if (el.id === product.id){
             purchase = el;
         }
     }
@@ -23,7 +23,7 @@ const CartItem = (props) => {
         purchases = JSON.parse(localStorage.getItem('ch_products_cart'));
 
         for (let el of purchases){
-            if (el.id == product.id){
+            if (el.id === product.id){
                 purchase = el;
             }
         }
@@ -32,7 +32,7 @@ const CartItem = (props) => {
 
     const removeHandler = () => {
         delete purchases[purchases.indexOf(purchase)];
-        purchases = purchases.filter(item => item != undefined);
+        purchases = purchases.filter(item => item !== undefined);
         localStorage.setItem('ch_products_cart', JSON.stringify(purchases));
         window.dispatchEvent( new Event('storage') );
     }
@@ -60,7 +60,7 @@ const CartItem = (props) => {
         <div className="cart-item-container">
             <h4 className="item-title">{purchase.name}</h4>
             <div className="horizontal-container">
-                <img className="item-image" src={purchase.image}/>
+                <img alt="Product" className="item-image" src={purchase.image}/>
                 <div className="item-price">
                     <h4 className="item-price-text">${parseInt(purchase.price) * parseInt(purchase.qty)}</h4>
                     <div className="item-change-qty horizontal-container">

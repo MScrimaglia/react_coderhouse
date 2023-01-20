@@ -3,8 +3,6 @@ import './style.css'
 import { useParams } from "react-router-dom";
 import BuyButton from '../../components/buy-button';
 import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
 
 const Detail = () => {
 
