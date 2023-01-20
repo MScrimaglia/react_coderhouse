@@ -29,8 +29,6 @@ const Home = () => {
     }
     ,[])
 
-    console.log(products);
-
     if (loading) {return <h4>Cargando...</h4>}
 
     return (

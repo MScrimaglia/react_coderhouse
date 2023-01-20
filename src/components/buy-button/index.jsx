@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import CartItem from '../../components/cart-item';
 import './style.css'
 import * as ReactDOM from 'react-dom/client';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 
 const BuyButton = (props) => { 
@@ -30,6 +32,14 @@ const BuyButton = (props) => {
                 new_item[item].qty += qty;
                 localStorage.setItem('ch_products_cart', JSON.stringify(new_item));
                 window.dispatchEvent( new Event('storage') );
+                const MySwal = withReactContent(Swal)
+
+                MySwal.fire({
+                    text: 'El producto se ha añadido al carrito',
+                    icon: 'success',
+                    confirmButtonText: 'Cerrar'
+                  })
+
                 return;
             }
         }

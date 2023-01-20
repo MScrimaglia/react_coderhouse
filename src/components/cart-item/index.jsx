@@ -17,6 +17,9 @@ const CartItem = (props) => {
     const [item_qty, setItemQty] = useState(purchase.qty);
 
     window.addEventListener('storage', () => {
+        if(localStorage['ch_products_cart'] === undefined || localStorage['ch_products_cart'] === '[]'){
+            return;
+        }
         purchases = JSON.parse(localStorage.getItem('ch_products_cart'));
 
         for (let el of purchases){

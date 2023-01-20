@@ -3,6 +3,8 @@ import CartItem from "../../components/cart-item";
 import { useNavigate } from 'react-router-dom';
 import './style.css'
 import { addDoc, collection, getFirestore } from "firebase/firestore";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 const Cart = () => {
 
@@ -35,7 +37,16 @@ const Cart = () => {
         }
         const db = getFirestore();
         const orderCollection = collection(db, 'orders');
-        addDoc(orderCollection, order).then(() => {
+        addDoc(orderCollection, order).then((docRef) => {
+            const MySwal = withReactContent(Swal)
+
+            MySwal.fire({
+                title: 'Compra exitosa!',
+                text: 'Orden de compra: ' + docRef.id,
+                icon: 'success',
+                confirmButtonText: 'Cerrar'
+                })
+
             localStorage.removeItem('ch_products_cart');
             window.dispatchEvent( new Event('storage') );
             navigate(`/`);
@@ -44,9 +55,12 @@ const Cart = () => {
 
     window.addEventListener('storage', () => {
         let total = 0;
-        for (let product of JSON.parse(localStorage['ch_products_cart'])){
-            total += product.price * product.qty;
+        if(localStorage['ch_products_cart'] !== undefined && localStorage['ch_products_cart'] !== '[]'){
+            for (let product of JSON.parse(localStorage['ch_products_cart'])){
+                total += product.price * product.qty;
+            }
         }
+
         setTotalPrice(total);
     });
 
