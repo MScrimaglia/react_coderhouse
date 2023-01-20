@@ -1,7 +1,6 @@
 {
   "name": "ch-react-app",
   "version": "0.1.0",
-  "homepage": "https://mscrimaglia.github.io/react_coderhouse",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
