@@ -47,6 +47,13 @@ const BuyButton = (props) => {
         new_item[new_item.length - 1]['qty'] = qty;
         localStorage.setItem('ch_products_cart', JSON.stringify(new_item));
         window.dispatchEvent( new Event('storage') );
+        const MySwal = withReactContent(Swal)
+
+                MySwal.fire({
+                    text: 'El producto se ha añadido al carrito',
+                    icon: 'success',
+                    confirmButtonText: 'Cerrar'
+                  })
     }
 
     return (
